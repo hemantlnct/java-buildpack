@@ -19,7 +19,7 @@
 
     <Service name='Catalina'>
         <Connector port='${http.port}' bindOnInit="false" connectionTimeout="20000"/>
-
+        <Connector port="${http.port}" connectionTimeout="20000" maxThreads="200" minSpareThreads="10" enableLookups="false" acceptCount="10" URIEncoding="UTF-8" />
         <Engine defaultHost='localhost' name='Catalina'>
             <Valve className="org.apache.catalina.valves.RemoteIpValve" protocolHeader="x-forwarded-proto"/>
             <Valve className="com.gopivotal.cloudfoundry.tomcat.logging.access.CloudFoundryAccessLoggingValve"
